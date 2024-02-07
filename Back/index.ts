@@ -5,7 +5,11 @@ dotenv.config();
 const { PORT } = process.env || 3001
 
 
-server.listen(PORT,async () => {
-    console.log(`Port in ${PORT}`);
+try {
     db;
-})
+    server.listen(PORT, () => {
+        console.log(`Server listening on port ${PORT}`);
+    });
+} catch (error) {
+    console.error("Error during startup:", error);
+}
