@@ -31,6 +31,7 @@ const apiBase = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.apiBase = apiBase;
 const allProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // handlerUploadProductsData()
         const result = yield Productos_1.default.find({});
         const totalResults = result.length;
         // allCreate()
