@@ -6,9 +6,10 @@ const { PORT } = process.env || 3001
 
 
 try {
-    db;
-    server.listen(PORT, () => {
+    server.listen(PORT,async () => {
         console.log(`Server listening on port ${PORT}`);
+        await db;
+
     });
 } catch (error) {
     console.error("Error during startup:", error);
