@@ -1229,11 +1229,19 @@ const productsData = [
 function handlerUploadProductsData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield Productos_1.default.insertMany(productsData);
-            console.log("Success Data Upload");
+            // Itera sobre los productos
+            for (const product of productsData) {
+                // Verifica si el producto ya existe en la base de datos
+                const existingProduct = yield Productos_1.default.findOne({ _id: product._id }); // Suponiendo que 'codigo' es un identificador único
+                // Si el producto no existe, lo inserta
+                if (!existingProduct) {
+                    yield Productos_1.default.create(product);
+                }
+            }
+            console.log("Éxito al cargar datos");
         }
         catch (error) {
-            console.log(error);
+            console.error("Error al cargar datos:", error);
         }
     });
 }
