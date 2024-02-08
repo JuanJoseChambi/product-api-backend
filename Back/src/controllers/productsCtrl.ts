@@ -4,7 +4,6 @@ import { paginationHandler } from "../handlers/paginationHandler";
 import { EditProduct, ProductsData } from "../interfaces/interfaces";
 import { editProductHandler } from "../handlers/editProductHandler";
 import dotenv from "dotenv"
-// import handlerUploadProductsData from "../utils/productsData";
 dotenv.config();
 const { URL_HOST } = process.env
 
@@ -20,7 +19,6 @@ export const apiBase = async (req:Request, res:Response) => {
 
 export const allProducts = async (req:Request, res:Response) => {
     try {
-        // handlerUploadProductsData()
         const result = await ProductoApi.find({})
     const totalResults = result.length
     // allCreate()
