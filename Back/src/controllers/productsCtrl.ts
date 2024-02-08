@@ -11,7 +11,6 @@ export const apiBase = async (req:Request, res:Response) => {
     try {
         
     res.status(200).json({products:`${URL_HOST}/api/v1/product`})
-    // res.status(200).json(result)
     } catch (error) {
     res.status(400).json({error:error})
     }
@@ -24,8 +23,8 @@ export const allProducts = async (req:Request, res:Response) => {
     // allCreate()
     res.status(200).json({TotalResults:totalResults, results: result})
     // res.status(200).json(result)
-    } catch (error) {
-    res.status(400).json({error:error})
+    } catch (error: any) {
+    res.status(404).json({error:error.message})
     }
 }
 
@@ -55,7 +54,7 @@ export const pageProducts = async (req:Request, res:Response) => {
             results: pageNumber !== pages + 1? productsInPage : null}
             )
     } catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
 
     }
 }
@@ -67,7 +66,7 @@ export const idProduct = async (req:Request, res:Response) => {
         
         res.status(200).json({results: result})
     } catch (error) {
-        res.status(400).json({error:error})
+        res.status(404).json({error:error})
     }
 }
 
@@ -94,7 +93,7 @@ export const filterProducts = async (req:Request, res:Response) => {
 
         res.status(200).json({totalResults:productsFiltred.length, results: productsFiltred})
     } catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 }
 
@@ -105,7 +104,7 @@ export const uploadProduct = async (req:Request, res:Response) => {
         const result  = await ProductoApi.create(productPost)
         res.status(200).json({successCreate: result})
     } catch (error) {   
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 }
 

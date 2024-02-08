@@ -17,13 +17,11 @@ const Productos_1 = __importDefault(require("../models/Productos"));
 const paginationHandler_1 = require("../handlers/paginationHandler");
 const editProductHandler_1 = require("../handlers/editProductHandler");
 const dotenv_1 = __importDefault(require("dotenv"));
-// import handlerUploadProductsData from "../utils/productsData";
 dotenv_1.default.config();
 const { URL_HOST } = process.env;
 const apiBase = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         res.status(200).json({ products: `${URL_HOST}/api/v1/product` });
-        // res.status(200).json(result)
     }
     catch (error) {
         res.status(400).json({ error: error });
@@ -32,7 +30,6 @@ const apiBase = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.apiBase = apiBase;
 const allProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // handlerUploadProductsData()
         const result = yield Productos_1.default.find({});
         const totalResults = result.length;
         // allCreate()
@@ -40,7 +37,7 @@ const allProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         // res.status(200).json(result)
     }
     catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error.message });
     }
 });
 exports.allProducts = allProducts;
@@ -62,7 +59,7 @@ const pageProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             results: pageNumber !== pages + 1 ? productsInPage : null });
     }
     catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 });
 exports.pageProducts = pageProducts;
@@ -73,7 +70,7 @@ const idProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(200).json({ results: result });
     }
     catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 });
 exports.idProduct = idProduct;
@@ -97,7 +94,7 @@ const filterProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(200).json({ totalResults: productsFiltred.length, results: productsFiltred });
     }
     catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 });
 exports.filterProducts = filterProducts;
@@ -108,7 +105,7 @@ const uploadProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(200).json({ successCreate: result });
     }
     catch (error) {
-        res.status(400).json({ error: error });
+        res.status(404).json({ error: error });
     }
 });
 exports.uploadProduct = uploadProduct;
