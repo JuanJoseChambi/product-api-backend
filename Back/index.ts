@@ -9,8 +9,8 @@ const { PORT } = process.env || 3001
 try {
     server.listen(PORT,async () => {
         console.log(`Server listening on port ${PORT}`);
-        handlerUploadProductsData()
         await db;
+        await handlerUploadProductsData()
     });
 } catch (error) {
     console.error("Error during startup:", error);

@@ -21,8 +21,8 @@ const { PORT } = process.env || 3001;
 try {
     app_1.default.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(`Server listening on port ${PORT}`);
-        (0, productsData_1.default)();
         yield db_1.default;
+        yield (0, productsData_1.default)();
     }));
 }
 catch (error) {
