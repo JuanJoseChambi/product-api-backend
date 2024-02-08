@@ -17,6 +17,7 @@ const Productos_1 = __importDefault(require("../models/Productos"));
 const paginationHandler_1 = require("../handlers/paginationHandler");
 const editProductHandler_1 = require("../handlers/editProductHandler");
 const dotenv_1 = __importDefault(require("dotenv"));
+// import handlerUploadProductsData from "../utils/productsData";
 dotenv_1.default.config();
 const { URL_HOST } = process.env;
 const apiBase = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

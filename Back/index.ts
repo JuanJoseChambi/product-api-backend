@@ -9,7 +9,6 @@ try {
     server.listen(PORT,async () => {
         console.log(`Server listening on port ${PORT}`);
         await db;
-
     });
 } catch (error) {
     console.error("Error during startup:", error);

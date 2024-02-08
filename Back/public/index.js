@@ -17,7 +17,12 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = __importDefault(require("./src/db"));
 dotenv_1.default.config();
 const { PORT } = process.env || 3001;
-app_1.default.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`Port in ${PORT}`);
-    db_1.default;
-}));
+try {
+    app_1.default.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
+        console.log(`Server listening on port ${PORT}`);
+        yield db_1.default;
+    }));
+}
+catch (error) {
+    console.error("Error during startup:", error);
+}
