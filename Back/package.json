@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",
-    "start": "node public/index.js"
+    "start": "node public/index.js",
+    "install": "npm install --omit=dev"
   },
   "keywords": [],
   "author": "",
