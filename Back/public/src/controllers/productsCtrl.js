@@ -37,7 +37,7 @@ const allProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         // res.status(200).json(result)
     }
     catch (error) {
-        res.status(404).json({ error: error });
+        res.status(404).json({ error: error.message });
     }
 });
 exports.allProducts = allProducts;
