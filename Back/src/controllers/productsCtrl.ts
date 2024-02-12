@@ -10,7 +10,7 @@ const { URL_HOST } = process.env
 export const apiBase = async (req:Request, res:Response) => {
     try {
         
-    res.status(200).json({products:`${URL_HOST}/api/v1/product`})
+    res.status(200).json({products:`https://product-api-backend-production.up.railway.app/api/v1/product`})
     } catch (error) {
     res.status(400).json({error:error})
     }
