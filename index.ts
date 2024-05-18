@@ -7,7 +7,7 @@ const { PORT } = process.env || 3001
 
 
 try {
-    server.listen(PORT,async () => {
+    server.listen(PORT, async () => {
         await db;
         console.log(`Server listening on port ${PORT}`);
         // await handlerUploadProductsData()

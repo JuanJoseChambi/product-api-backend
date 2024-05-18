@@ -1,18 +1,5 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Productos_1 = __importDefault(require("../models/Productos"));
 const productsData = [
     {
         "_id": "6586177c054c7b7c9fee808c",
@@ -1226,23 +1213,20 @@ const productsData = [
         "updatedAt": "2024-01-01T21:12:07.261Z"
     }
 ];
-function handlerUploadProductsData() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            // Itera sobre los productos
-            for (const product of productsData) {
-                // Verifica si el producto ya existe en la base de datos
-                const existingProduct = yield Productos_1.default.findOne({ _id: product._id }); // Suponiendo que 'codigo' es un identificador único
-                // Si el producto no existe, lo inserta
-                if (!existingProduct) {
-                    yield Productos_1.default.create(product);
-                }
-            }
-            console.log("Éxito al cargar datos");
-        }
-        catch (error) {
-            console.error("Error al cargar datos:", error);
-        }
-    });
-}
-exports.default = handlerUploadProductsData;
+// async function handlerUploadProductsData() {
+//     try {
+//       // Itera sobre los productos
+//         for (const product of productsData) {
+//         // Verifica si el producto ya existe en la base de datos
+//         const existingProduct = await ProductoApi.findOne({ _id: product._id }); // Suponiendo que 'codigo' es un identificador único
+//         // Si el producto no existe, lo inserta
+//             if (!existingProduct) {
+//             await ProductoApi.create(product);
+//         } 
+//         }
+//         console.log("Éxito al cargar datos");
+//     } catch (error) {
+//         console.error("Error al cargar datos:", error);
+//     }
+//   }
+// export default handlerUploadProductsData 

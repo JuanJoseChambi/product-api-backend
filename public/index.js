@@ -15,14 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./src/app"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = __importDefault(require("./src/db"));
-const productsData_1 = __importDefault(require("./src/utils/productsData"));
+// import handlerUploadProductsData from "./src/utils/productsData";
 dotenv_1.default.config();
 const { PORT } = process.env || 3001;
 try {
     app_1.default.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
         yield db_1.default;
         console.log(`Server listening on port ${PORT}`);
-        yield (0, productsData_1.default)();
+        // await handlerUploadProductsData()
     }));
 }
 catch (error) {

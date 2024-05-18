@@ -21,7 +21,9 @@ dotenv_1.default.config();
 const { URL_HOST } = process.env;
 const apiBase = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.status(200).json({ products: `https://product-api-backend-production.up.railway.app/api/v1/product` });
+        res.status(200).json({
+            products: `https://product-api-backend-production.up.railway.app/api/v1/product`
+        });
     }
     catch (error) {
         res.status(400).json({ error: error });
