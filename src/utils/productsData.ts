@@ -1215,23 +1215,23 @@ const productsData = [
 ]
 
 
-async function handlerUploadProductsData() {
-    try {
-      // Itera sobre los productos
-        for (const product of productsData) {
-        // Verifica si el producto ya existe en la base de datos
-        const existingProduct = await ProductoApi.findOne({ _id: product._id }); // Suponiendo que 'codigo' es un identificador único
+// async function handlerUploadProductsData() {
+//     try {
+//       // Itera sobre los productos
+//         for (const product of productsData) {
+//         // Verifica si el producto ya existe en la base de datos
+//         const existingProduct = await ProductoApi.findOne({ _id: product._id }); // Suponiendo que 'codigo' es un identificador único
   
-        // Si el producto no existe, lo inserta
-            if (!existingProduct) {
-            await ProductoApi.create(product);
-        } 
-        }
+//         // Si el producto no existe, lo inserta
+//             if (!existingProduct) {
+//             await ProductoApi.create(product);
+//         } 
+//         }
 
-        console.log("Éxito al cargar datos");
-    } catch (error) {
-        console.error("Error al cargar datos:", error);
-    }
-  }
+//         console.log("Éxito al cargar datos");
+//     } catch (error) {
+//         console.error("Error al cargar datos:", error);
+//     }
+//   }
 
-export default handlerUploadProductsData 
+// export default handlerUploadProductsData 
